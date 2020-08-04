@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { Input } from "./components/Input";
+import { Item } from "./components/Item";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  // eslint-disable-next-line
+  state = {
+    list: [],
+  };
+
+  onResults = (result) => {
+    const auxList = this.state.list;
+    auxList.reverse();
+    auxList.push({ data: result, ready: false });
+    auxList.reverse();
+    this.setState({ list: auxList });
+  };
+
+  render() {
+    return (
+      <div className="App mt-5">
+        <h1>ToDo List</h1>
+        <div className="container">
+          <Input onResults={this.onResults} />
+          <div className="mt-5">
+            {this.state.list.map((item, index) => {
+              return (
+                <div key={index}>
+                  <Item text={item} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
