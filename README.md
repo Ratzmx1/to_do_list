@@ -3,6 +3,8 @@
 This project it's my first code challenge, it takes me about 50 minutes
 I use bootstrap as css framework and react to javascript.
 
+To test this app [click Here](https://ratzmx1.github.io/to_do_list/)
+
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

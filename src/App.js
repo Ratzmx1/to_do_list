@@ -10,6 +10,11 @@ class App extends Component {
     list: [],
   };
 
+  componentDidMount() {
+    const data = localStorage.getItem("list");
+    if (data) this.setState({ list: JSON.parse(data) });
+  }
+
   onResults = (result) => {
     const auxList = this.state.list;
     auxList.reverse();
