@@ -21,6 +21,7 @@ class App extends Component {
     auxList.push({ data: result, ready: false });
     auxList.reverse();
     this.setState({ list: auxList });
+    localStorage.setItem("list", JSON.stringify(this.state.list));
   };
 
   render() {
